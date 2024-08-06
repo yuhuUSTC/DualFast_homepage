@@ -1,1 +1,1 @@
-Project Page: https://yuhuUSTC.github.io/DualFast
+Project Page: https://yuhuustc.github.io/DualFast
