@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta property="og:title"
-        content="Uncovering the Text Embedding in Text-to-Image Diffusion Models" />
-    <meta property="og:url" content="https://yuhuUSTC.github.io/UTE" />
+        content="DualFast: Dual-Speedup Framework for Fast Sampling of Diffusion Models" />
+    <meta property="og:url" content="https://yuhuUSTC.github.io/DualFast" />
     <meta property="og:image" content="static/images/head.png" />
     <meta property="og:image:width" content="2048" />
     <meta property="og:image:height" content="1152" />
@@ -101,12 +101,12 @@
                     <h2 class="title is-3">Abstract</h2>
                     <div class="content has-text-justified">
                         <p>
-                            The correspondence between input text and the generated image exhibits opacity, wherein minor textual modifications can induce substantial deviations in the generated image. 
-			    While, text embedding, as the pivotal intermediary between text and images, remains relatively underexplored. 
-			    In this paper, we address this research gap by delving into the text embedding space, unleashing its capacity for controllable image editing and explicable semantic direction attributes within a learning-free framework. 
-			    Specifically, we identify two critical insights regarding the importance of per-word embedding and their contextual correlations within text embedding, providing instructive principles for learning-free image editing. 
-			    Additionally, we find that text embedding inherently possesses diverse semantic potentials, and further reveal this property through the lens of singular value decomposition (SVD). 
-			    These uncovered properties offer practical utility for image editing and semantic discovery. More importantly, we expect the in-depth analyses and findings of the text embedding can enhance the understanding of text-to-image diffusion models.
+                            Diffusion probabilistic models (DPMs) have achieved impressive success in visual generation. While, they suffer from slow inference speed due to iterative sampling. 
+   			    Employing fewer sampling steps is an intuitive solution, but this will also introduces discretization error. Existing fast samplers make inspiring efforts to reduce discretization error through the adoption of high-order solvers, potentially reaching a plateau in terms of optimization. This raises the question: can the sampling process be expedited further?
+   			    In this paper, we re-examine the nature of sampling errors, discerning that they comprise two distinct elements: the widely recognized discretization error and the less acknowledged approximation error.
+   			    Our research elucidates the dynamics between these errors and the step by implementing a dual-error disentanglement strategy. Building on these foundations, we introduce an unified and training-free acceleration framework, DualFast, designed to enhance the speed of DPM sampling by concurrently accounting for both error types, thereby minimizing the total sampling error.
+   			    DualFast is seamlessly compatible with existing samplers and significantly boost their sampling quality and speed, particularly in extremely few sampling steps. 
+   			    We substantiate the effectiveness of our framework through comprehensive experiments, spanning both unconditional and conditional sampling domains, across both pixel-space and latent-space DPMs.
                         </p>
                     </div>
                 </div>
