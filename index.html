@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta property="og:title"
+        content="Uncovering the Text Embedding in Text-to-Image Diffusion Models" />
+    <meta property="og:url" content="https://yuhuUSTC.github.io/UTE" />
+    <meta property="og:image" content="static/images/head.png" />
+    <meta property="og:image:width" content="2048" />
+    <meta property="og:image:height" content="1152" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--     <title>CCM</title> -->
+    <script>
+        var x = window.innerWidth;
+        function resizeFresh(){
+            if(x!=window.innerWidth)
+                location.reload();
+        }
+    </script>
+<!--     <link rel="icon" type="image/x-icon" href="static/images/ccm-logo4.png"> -->
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/index.js"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.1.1/gradio.js"></script>
+</head>
+
+<body onresize="resizeFresh()">
+
+    <section class="hero banner">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">
+                            <i class="pixart-alpha-icon"></i>
+                            <span style="color: rgb(167, 175, 246);">Uncovering the Text Embedding in Text-to-Image Diffusion Models</h1>
+                        <div class="is-size-5 publication-authors">
+                            <!-- Paper authors -->
+                            <span class="author-block">
+                                <a href="https://yuhuUSTC.github.io/" target="_blank">Hu Yu</a><sup>1</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://luohao.site/" target="_blank">Hao Luo</a><sup>2</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://scholar.google.com/citations?user=WCRGTHsAAAAJ&hl=en" target="_blank">Fan Wang</a><sup>2</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://bivlab123.github.io/" target="_blank">Feng Zhao</a><sup>1</sup>,</span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>University of Science and Technology of China</span>
+                            &nbsp;<span class="author-block"><sup>2</sup>Alibaba Group</span>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/abs/2404.01154" target="_blank"
+                                        class="external-link button is-normal is-rounded is-white">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
+<!--                                <span class="link-block">-->
+<!--                                    <a href="https://github.com/SwiftForce/control-consistency-models" target="_blank"-->
+<!--                                        class="external-link button is-normal is-rounded is-white">-->
+<!--                                        <span class="icon">-->
+<!--                                            <i class="fas fa-code"></i>-->
+<!--                                        </span>-->
+<!--                                        <span>Code</span>-->
+<!--                                    </a>-->
+<!--                                </span>-->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paper abstract -->
+    <section class="section hero is-light">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            The correspondence between input text and the generated image exhibits opacity, wherein minor textual modifications can induce substantial deviations in the generated image. 
+			    While, text embedding, as the pivotal intermediary between text and images, remains relatively underexplored. 
+			    In this paper, we address this research gap by delving into the text embedding space, unleashing its capacity for controllable image editing and explicable semantic direction attributes within a learning-free framework. 
+			    Specifically, we identify two critical insights regarding the importance of per-word embedding and their contextual correlations within text embedding, providing instructive principles for learning-free image editing. 
+			    Additionally, we find that text embedding inherently possesses diverse semantic potentials, and further reveal this property through the lens of singular value decomposition (SVD). 
+			    These uncovered properties offer practical utility for image editing and semantic discovery. More importantly, we expect the in-depth analyses and findings of the text embedding can enhance the understanding of text-to-image diffusion models.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End paper abstract -->
+
+    <section class="hero is-small">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <!-- <h2 class="title is-3">Samples generated by <i class="pixart-alpha-icon"></i><span style="color: rgb(72, 87, 220);">Ranni</span></h2> -->
+                <h2 class="title is-4">Visual Examples</h2>
+                <hr>
+                <p>
+                    <h2 class="title is-6">Object Replace, Action Edit, Fader Control, Style Transfer, and Semantic Directions.</h2>
+                </p>
+                <img loading="lazy" src="static/images/result.png" alt="count" />
+                <hr>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="hero is-small">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <!-- <h2 class="title is-3">Samples generated by <i class="pixart-alpha-icon"></i><span style="color: rgb(72, 87, 220);">Ranni</span></h2> -->
+                <h2 class="title is-4">Implementation</h2>
+                <hr>
+                <p>
+                    <h2 class="title is-6">Controllable Image Editing via Text Embedding Manipulation.</h2>
+                </p>
+                <img loading="lazy" src="static/images/imple1.png" alt="count" />
+                <hr>
+                <p>
+                    <h2 class="title is-6">Semantic Directions in SVD of Text Embedding.</h2>
+                </p>
+                <img loading="lazy" src="static/images/imple2.png" alt="count" />
+                <hr>
+            </div>
+        </div>
+    </section>
+
+<!--    BibTex citation -->
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>@article{xiao2023ccm,
+    title={CCM: Adding Conditional Controls to Text-to-Image Consistency Models},
+    author={Jie Xiao and Kai Zhu and Han Zhang and Zhiheng Liu and Yujun Shen and Yu Liu and Xueyang Fu and Zheng-Jun Zha},
+    year={2023},
+    eprint={2312.06971},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV}
+}</code></pre>
+        </div>
+    </section>
+<!--    End BibTex citation -->
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            This page was built using the <a
+                                href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+                            You are free to borrow the of this website, we just ask that you link back to this page in
+                            the footer. <br> This website is licensed under a <a rel="license"
+                                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                                Commons Attribution-ShareAlike 4.0 International License</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id = "logo" style="margin-top: 10px; text-align:center">
+	    <div align="center" style="margin:auto;padding-top:10px">
+            <div style="width:12%">
+            <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=XDFRYt5cyxYi13To-PxyHuqLooENPIwVZ3W3slBoDSI&cl=ffffff&w=a"></script>
+            </div>
+        </div>
+     </div>
+    </footer>
+
+</body>
+
+</html>
